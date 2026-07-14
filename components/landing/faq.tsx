@@ -7,46 +7,79 @@ import {
 
 const faqs = [
   {
-    question: 'Do I need to register a company or pass KYC?',
+    question: 'Do I need a business license or LLC?',
     answer:
-      'No. You only need a Polygon wallet address to receive payouts. There are no identity checks, no business registration requirements, and no merchant account underwriting.',
+      'No. You only need a Polygon wallet address to receive payouts. There are no identity checks, no business registration requirements, and no merchant account underwriting. Perfect for pre-incorporation, MVP, or soft-launch businesses.',
   },
   {
-    question: 'How do my customers pay?',
+    question: 'Do my customers need a crypto wallet?',
     answer:
-      'Customers pay with a credit card, debit card, Apple Pay, or Google Pay through a hosted checkout page powered by licensed onramp partners like Wert and MoonPay. They never need to know crypto is involved.',
+      'No. Your customers pay with a credit card, debit card, Apple Pay, or Google Pay through a hosted checkout. The wallet field on the on-ramp is pre-filled with YOUR address and hidden from view. They never paste an address, never pick a chain, and never know crypto is involved.',
   },
   {
-    question: 'How and when do I get paid?',
+    question: 'What does the customer see on their bank statement?',
     answer:
-      'Payments settle as USDC on the Polygon network directly to the wallet address you set in your dashboard — typically within minutes of the card payment clearing. There are no holds or rolling reserves.',
+      'Their statement reads "USDC PURCHASE" or the on-ramp provider\u2019s name. No product keyword, no high-risk merchant category code. Nothing for a bank risk team to flag.',
   },
   {
-    question: 'What about chargebacks?',
+    question: 'How do I know I got paid?',
     answer:
-      'Card disputes are handled by the onramp provider that processed the card, not by you. Your USDC settlement is final — funds in your wallet cannot be clawed back.',
+      'Three ways, all instant: the USDC lands in your wallet (check any Polygon explorer), your dashboard shows the transaction in real time, and an HMAC-signed webhook fires to your server so your store can auto-mark the order as paid.',
+  },
+  {
+    question: 'Can a customer charge back like on Stripe?',
+    answer:
+      'Card disputes are handled by the on-ramp provider that processed the card, not by you. Your USDC settlement is final \u2014 funds in your wallet cannot be clawed back. That is why we can operate with zero rolling reserve.',
+  },
+  {
+    question: 'What if my customer\u2019s card is declined?',
+    answer:
+      'The checkout automatically surfaces alternative rails ranked by approval rate for their country and card BIN. If one on-ramp declines, the customer can retry with another in one click \u2014 same link, no restart.',
+  },
+  {
+    question: 'How do I get my money out (EUR / USD) once I have USDC?',
+    answer:
+      'USDC on Polygon is accepted at every major exchange (Coinbase, Kraken, Binance). Transfer it there and cash out to your bank account via SEPA or wire. Many merchants also spend directly via crypto debit cards, or pay suppliers in USDC/USDT.',
+  },
+  {
+    question: 'How much does it cost?',
+    answer:
+      'A flat platform commission per successful transaction (see pricing above) plus the on-ramp\u2019s own pass-through fee, which varies by rail from 1.5%. No monthly fee, no setup fee, no reserve, no minimums. You receive roughly 93\u201397% of the charged amount in USDC.',
+  },
+  {
+    question: 'How do I pass the transaction fees to my customer?',
+    answer:
+      'Simply price your products with the fee baked in, or add a checkout surcharge on your store. Since you know the total merchant fee per rail up front, a flat 5\u20137% markup covers it completely.',
+  },
+  {
+    question: 'What happens if you shut down tomorrow?',
+    answer:
+      'Nothing happens to your money. We are non-custodial \u2014 funds settle directly from the card processor to your wallet and never pass through us. Historic settlements are already in your wallet; only the link-generation dashboard would go away.',
   },
   {
     question: 'What can I sell?',
     answer:
-      'We serve high-risk verticals that traditional processors decline — peptides, CBD, kratom, nutraceuticals, adult content, gaming, and more. Anything illegal is strictly prohibited.',
+      'We serve high-risk verticals traditional processors decline \u2014 peptides, research chemicals, CBD, kratom, nutraceuticals, supplements, adult, gaming, kava, and more. Anything illegal is strictly prohibited.',
   },
   {
-    question: 'Can I integrate this into my website?',
+    question: 'Can I integrate this into my website or store?',
     answer:
-      'Yes. Every payment link is a simple URL you can put behind any buy button. You can also register webhooks to receive signed, real-time payment notifications and automate order fulfillment.',
+      'Yes. Every payment link is a simple URL you can put behind any buy button on Shopify, WooCommerce, or a custom site. Register a webhook and your orders auto-mark as paid the moment USDC settles \u2014 no manual reconciliation.',
   },
 ]
 
 export function Faq() {
   return (
-    <section id="faq" className="border-t border-border/60 bg-card/30">
+    <section id="faq" className="border-t border-border/60 bg-secondary/60">
       <div className="mx-auto max-w-3xl px-4 py-20 md:px-6 md:py-28">
         <div className="mb-12 flex flex-col gap-3">
-          <p className="text-sm font-medium uppercase tracking-widest text-primary">FAQ</p>
-          <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">
-            Questions, answered
+          <p className="text-sm font-semibold uppercase tracking-widest text-primary">FAQ</p>
+          <h2 className="text-balance text-3xl font-bold tracking-tight md:text-4xl">
+            Straight answers.
           </h2>
+          <p className="text-pretty leading-relaxed text-muted-foreground">
+            Every high-risk shop owner asks these before switching.
+          </p>
         </div>
 
         <Accordion type="single" collapsible className="w-full">

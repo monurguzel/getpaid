@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#131417',
+  themeColor: '#ffffff',
 }
 
 export default function RootLayout({
@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en" className={`bg-background ${geistSans.variable} ${geistMono.variable}`}>
       <body className="font-sans antialiased">
         {children}
-        <Toaster theme="dark" position="top-right" />
+        <Toaster theme="light" position="top-right" />
       </body>
     </html>
   )

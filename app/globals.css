@@ -4,39 +4,43 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0.145 0.004 260);
-  --foreground: oklch(0.96 0.005 260);
-  --card: oklch(0.185 0.005 260);
-  --card-foreground: oklch(0.96 0.005 260);
-  --popover: oklch(0.185 0.005 260);
-  --popover-foreground: oklch(0.96 0.005 260);
-  --primary: oklch(0.87 0.21 155);
-  --primary-foreground: oklch(0.16 0.02 155);
-  --secondary: oklch(0.24 0.006 260);
-  --secondary-foreground: oklch(0.96 0.005 260);
-  --muted: oklch(0.24 0.006 260);
-  --muted-foreground: oklch(0.68 0.008 260);
-  --accent: oklch(0.24 0.006 260);
-  --accent-foreground: oklch(0.96 0.005 260);
-  --destructive: oklch(0.62 0.22 25);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.27 0.006 260);
-  --input: oklch(0.27 0.006 260);
-  --ring: oklch(0.87 0.21 155);
-  --chart-1: oklch(0.87 0.21 155);
-  --chart-2: oklch(0.7 0.15 200);
-  --chart-3: oklch(0.78 0.16 80);
-  --chart-4: oklch(0.62 0.22 25);
-  --chart-5: oklch(0.68 0.008 260);
+  /* Stripe-inspired palette: white canvas, deep navy text, blurple primary */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.28 0.06 262);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.28 0.06 262);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.28 0.06 262);
+  --primary: oklch(0.55 0.22 285);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.97 0.005 262);
+  --secondary-foreground: oklch(0.28 0.06 262);
+  --muted: oklch(0.97 0.005 262);
+  --muted-foreground: oklch(0.51 0.03 262);
+  --accent: oklch(0.95 0.02 285);
+  --accent-foreground: oklch(0.4 0.16 285);
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.92 0.005 262);
+  --input: oklch(0.92 0.005 262);
+  --ring: oklch(0.55 0.22 285);
+  --chart-1: oklch(0.55 0.22 285);
+  --chart-2: oklch(0.62 0.17 235);
+  --chart-3: oklch(0.72 0.13 165);
+  --chart-4: oklch(0.75 0.14 80);
+  --chart-5: oklch(0.51 0.03 262);
   --radius: 0.625rem;
-  --sidebar: oklch(0.165 0.005 260);
-  --sidebar-foreground: oklch(0.96 0.005 260);
-  --sidebar-primary: oklch(0.87 0.21 155);
-  --sidebar-primary-foreground: oklch(0.16 0.02 155);
-  --sidebar-accent: oklch(0.24 0.006 260);
-  --sidebar-accent-foreground: oklch(0.96 0.005 260);
-  --sidebar-border: oklch(0.27 0.006 260);
-  --sidebar-ring: oklch(0.87 0.21 155);
+  --sidebar: oklch(0.985 0.003 262);
+  --sidebar-foreground: oklch(0.28 0.06 262);
+  --sidebar-primary: oklch(0.55 0.22 285);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.95 0.02 285);
+  --sidebar-accent-foreground: oklch(0.4 0.16 285);
+  --sidebar-border: oklch(0.92 0.005 262);
+  --sidebar-ring: oklch(0.55 0.22 285);
+  /* Stripe navy for dark hero/footer sections */
+  --navy: oklch(0.28 0.06 262);
+  --navy-foreground: oklch(0.97 0.005 262);
 }
 
 @theme inline {
@@ -74,6 +78,8 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-navy: var(--navy);
+  --color-navy-foreground: var(--navy-foreground);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -89,13 +95,13 @@
   }
 }
 
-.dark {
-  --sidebar: hsl(240 5.9% 10%);
-  --sidebar-foreground: hsl(240 4.8% 95.9%);
-  --sidebar-primary: hsl(224.3 76.3% 48%);
-  --sidebar-primary-foreground: hsl(0 0% 100%);
-  --sidebar-accent: hsl(240 3.7% 15.9%);
-  --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
-  --sidebar-border: hsl(240 3.7% 15.9%);
-  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+/* Stripe-style angled gradient hero stripe */
+.hero-gradient {
+  background: linear-gradient(
+    100deg,
+    oklch(0.55 0.22 285) 0%,
+    oklch(0.6 0.2 300) 30%,
+    oklch(0.65 0.17 20) 65%,
+    oklch(0.8 0.14 60) 100%
+  );
 }
